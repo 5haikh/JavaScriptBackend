@@ -1,0 +1,138 @@
+An h1 element is the main heading of a webpage and you should only use one per page. h2 elements represent subheadings. 
+There are six heading elements in HTML: h1 through h6. They're used to show the importance of sections on your webpage, with h1 being the most important and h6 the least.
+Some HTML elements do not have a closing tag. These are known as void elements.
+
+An attribute is a special value used to adjust the behavior for an HTML element. 
+
+The link element is used to link to external resources like stylesheets and site icons. Here is the basic syntax for using the link element for an external CSS file:
+
+<link rel="stylesheet" href="./styles.css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+In this example, the preconnect value for the rel attribute tells the browser to create an early connection to the value specified in the href attribute. This is done to speed up loading times for these external resources.
+
+<link rel="icon" href="favicon.ico" />
+
+
+
+
+
+
+
+1. **Route Parameters (URL Params)**
+
+Used to pass data as part of the URL.
+
+#### ✅ How to Pass:
+
+```http
+GET /users/123
+```
+
+#### ✅ How to Define in Route:
+
+```js
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  res.send(`User ID is ${userId}`);
+});
+```
+
+#### ✅ Access via:
+
+```js
+req.params
+```
+
+---
+
+### 2. **Query Parameters**
+
+Used to pass key-value pairs in the URL after the `?`.
+
+#### ✅ How to Pass:
+
+```http
+GET /search?query=books&sort=asc
+```
+
+#### ✅ How to Define in Route:
+
+```js
+app.get('/search', (req, res) => {
+  const query = req.query.query;
+  const sort = req.query.sort;
+  res.send(`Search for ${query}, sort: ${sort}`);
+});
+```
+
+#### ✅ Access via:
+
+```js
+req.query
+```
+
+---
+
+### 3. **Body Parameters**
+
+Used with `POST`, `PUT`, or `PATCH` requests where data is sent in the body (usually JSON or form data).
+
+#### ✅ Middleware (required):
+
+```bash
+npm install express
+```
+
+```js
+const express = require('express');
+const app = express();
+
+app.use(express.json()); // for JSON
+app.use(express.urlencoded({ extended: true })); // for form data
+```
+
+#### ✅ How to Pass (example JSON):
+
+```json
+POST /login
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "secret"
+}
+```
+
+#### ✅ How to Define in Route:
+
+```js
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  res.send(`Username: ${username}, Password: ${password}`);
+});
+```
+
+#### ✅ Access via:
+
+```js
+req.body
+```
+
+---
+
+### Summary
+
+| Type        | Where Passed     | Access in Express | Example URL/Request                    |
+| ----------- | ---------------- | ----------------- | -------------------------------------- |
+| Route Param | In URL path      | `req.params`      | `/user/:id` → `/user/10`               |
+| Query Param | After `?` in URL | `req.query`       | `/search?query=book&sort=asc`          |
+| Body Param  | In request body  | `req.body`        | JSON or form-data in `POST`/`PUT` reqs |
+
+---
+
+Let me know if you want a complete working example or want to test using **Postman** or **curl**.
+
+
+
+
