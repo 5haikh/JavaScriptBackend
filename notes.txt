@@ -1,3 +1,8 @@
+RVjZo7xasf7wl3TE
+smfaiz1024_db_user
+
+mongodb+srv://smfaiz1024_db_user:RVjZo7xasf7wl3TE@cluster0.rmhz0vh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
 An h1 element is the main heading of a webpage and you should only use one per page. h2 elements represent subheadings. 
 There are six heading elements in HTML: h1 through h6. They're used to show the importance of sections on your webpage, with h1 being the most important and h6 the least.
 Some HTML elements do not have a closing tag. These are known as void elements.
