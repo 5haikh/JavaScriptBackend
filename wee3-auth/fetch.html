@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function myfunc() {
+            // const fetchPromise = fetch("https://fakerapi.it/api/v1/persons");
+            // fetchPromise.then(function (response) {
+            //     finalRes = response.json()
+            //     finalRes.then(function (output) {
+            //         console.log(output)
+            //     })
+            // })
+            respone = await fetch("https://fakerapi.it/api/v1/persons");
+            console.log(await respone.json());
+        }
+        myfunc();
+    </script>
+</body>
+</html>
